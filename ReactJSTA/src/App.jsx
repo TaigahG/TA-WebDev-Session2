@@ -1,13 +1,11 @@
 import { useState } from "react";
-import "./App.css"; // Make sure you have this CSS file and it's not overriding your styles unintentionally
-
+import "./App.css"; 
 function App() {
   const [todos, setTodos] = useState([]);
   const [newItem, setItem] = useState("");
   const [editItem, setEditItem] = useState(null);
   const [editText, setEditText] = useState("");
 
-  // This handles both adding new items and updating existing ones
   function handleSubmit(e) {
     e.preventDefault();
     if (editItem) {
@@ -31,7 +29,6 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
-  // Make sure this function is correctly toggling the completed status
   function toggleTodo(id) {
     setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
   }
